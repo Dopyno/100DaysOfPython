@@ -1,9 +1,8 @@
-print("Hello world");
-firstName = input("Enter your first name: ")
-print("Welcome " + firstName + "!")
-height = int(input("Enter your height in cm: "))
-if height > 150 : print("You are tall enough to play basketball!");
-else: print("You must wait to grow a little bit");
+#print statement
+firstName = "Marius"
+lastName = "Iordan"
 
-name = str(input("Please enter you name: "))
-print("Welcome my friend " + name)
+print(firstName + " " + lastName); # normal print 
+print(f"My name is: {firstName} {lastName}"); #fstring to print with place holders
+print(f"""My name is: {firstName} {lastName} and ...
+      I just came back from Romania"""); #fstring to print on multiple lines
