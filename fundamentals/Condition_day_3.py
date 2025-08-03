@@ -32,7 +32,7 @@ if height >= 120:
     photo = input("Do you want photos while you are is rollercoaster just for $3? (Y / N) ")
     if photo.casefold() == "y":
         if age >=45 and age <=55:
-            ticket += 0
+            ticket += 3
         else:
             ticket += 3
     print(f"Total bill is: ${ticket}")
