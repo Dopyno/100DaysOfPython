@@ -52,3 +52,50 @@
 # else:
 #     print(f"The year {year} is not a leap year")
 
+price = 0
+def welcome():
+    print("\n---------------------------------------")
+    print("** Welcome to Python Pizza Delivery! **")
+    print("---------------------------------------\n")
+
+def print_menu():
+    print("=======  PIZZA MENU  =======")
+    print("Small Pizza: $15")
+    print("Medium Pizza: $20")
+    print("Large Pizza: $25\n")
+    print("Pepperoni for Small Pizza: +$2")
+    print("Pepperoni for Medium and Large Pizza: +$3\n")
+    print("Extra cheese for any size of pizza: +$1")
+
+def calculate_bill(size, pepperoni, cheese):
+    if size.casefold() == "s":
+        price += 15
+        print(f"You choose a Small Pizza for: ${price}")
+        if pepperoni.casefold() == "y":
+            price += 2
+            print("Adding pepperoni for: +$2")
+    elif size.casefold() == "m":
+        price += 20
+        print(f"You choose a Medium Pizza for: ${price}")
+        if pepperoni.casefold() == "y":
+            price += 3
+            print("Adding pepperoni for: +$3")
+    else:
+        price += 25
+        print(f"You choose a Large Pizza for: ${price}")
+        if pepperoni.casefold() == "y":
+            price += 3
+            print("Adding pepperoni for: +$3")
+    if cheese.casefold() == "y":
+            price += 1
+            print("Adding pepperoni for: +$1")
+    print(f"Total bill: ${price}")
+
+welcome()
+print_menu()
+
+size = input("What size pizza do you want? S, M or L ")
+pepperoni = input("Do you want pepperoni? (Y / N) ")
+cheese = input("Do you want extra cheese? (Y / N) ")
+
+calculate_bill(size, pepperoni, cheese)
