@@ -55,18 +55,15 @@ password = []
 
 for i in range(0, nr_letters):
     # temp.append(letters[random.randint(0, len(letters) - 1)])
-    # temp.append(random.choice(letters))
     password.append(random.choice(letters))
 
 for i in range(0, nr_symbols):
     # temp.append(symbols[random.randint(0, len(symbols) - 1)])
-    # temp.append(random.choice(symbols))
     password.append(random.choice(symbols))
 
 
 for i in range(0, nr_numbers):
     # temp.append(numbers[random.randint(0, len(numbers) - 1)])
-    # temp.append(random.choice(numbers))
     password.append(random.choice(numbers))
 
 y = ""
