@@ -86,3 +86,29 @@ while not at_goal():
             jump()
         else:
             move()
+
+
+def turn_right():
+    turn_left()
+    turn_left()
+    turn_left()
+    
+def jump():
+    turn_left()
+    while wall_on_right():
+        if wall_in_front():
+            turn_left()
+        if wall_in_front() and right_is_clear():
+            turn_right()
+        else:
+            move()
+    if right_is_clear():
+        turn_right()
+
+        
+    
+while not at_goal():
+        if wall_in_front():
+            jump()
+        else:
+            move()
