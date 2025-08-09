@@ -1,4 +1,7 @@
 
+
+# ** Reborg World
+
 # ** Reborg 3
 
 def turn_around():
@@ -55,60 +58,21 @@ while not at_goal():
     
 # ** Maze  
 
+
 def turn_right():
     turn_left()
     turn_left()
     turn_left()
     
-def jump():
-    turn_left()
-    while wall_on_right():
-        if wall_in_front():
-            turn_left()
-        else:
-            move()
-    if right_is_clear():
-        turn_right()
-    else:
-        turn_left()
-    while front_is_clear():
-        if at_goal():
-            break
-        move()
-    turn_right()
-    if wall_in_front() and wall_on_right():
-        turn_left()
-        move()
+
         
     
 while not at_goal():
-        if wall_in_front():
-            jump()
-        else:
+        if front_is_clear():
             move()
-
-
-def turn_right():
-    turn_left()
-    turn_left()
-    turn_left()
-    
-def jump():
-    turn_left()
-    while wall_on_right():
-        if wall_in_front():
-            turn_left()
-        if wall_in_front() and right_is_clear():
+        elif right_is_clear():
             turn_right()
-        else:
-            move()
-    if right_is_clear():
-        turn_right()
-
-        
-    
-while not at_goal():
-        if wall_in_front():
-            jump()
+        elif wall_in_front():
+            turn_left()
         else:
             move()

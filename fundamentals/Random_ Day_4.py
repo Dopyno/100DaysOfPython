@@ -81,7 +81,7 @@ scissor = """Scissor
 
 list = [rock, scissor, paper]
 
-player = int(input("What so you choose? Type 1 for Rock, 2 for Paper or 3 for Scissor.\n"))
+player = int(input("What so you choose? Type 0 for Rock, 1 for Paper or 2 for Scissor.\n"))
 computer = random.randint(0, 2)
 
 if player < 0 or player >= 3: 
