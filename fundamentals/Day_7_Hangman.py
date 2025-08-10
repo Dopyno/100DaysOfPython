@@ -14,10 +14,14 @@ selected_word = random.choice(word_list)
 size = len(selected_word)
 user_raw_letter = ""
 user_letter = []
-# count = 0
 word = []
 
-while size + 7:
+size = len(selected_word)
+counter = (size + 7)
+
+print(len(selected_word))
+print(counter)
+while counter > 0:
     for index, letter in enumerate(selected_word):
         if user_letter == letter:
             word[index] = user_letter
@@ -25,12 +29,13 @@ while size + 7:
             word.append("_ ")  
         print(word[index], end=" ")
 
-    
-    user_raw_letter = input("\nPlease choose a letter: ")
+    print()
+    user_raw_letter = input("Please choose a letter: ")
     user_letter = user_raw_letter.lower()
-    size -= 1
+    counter -= 1
+    print(counter)
 
-size = len(word)
+
 
 
 
