@@ -13,16 +13,18 @@ letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n',
 selected_word = random.choice(word_list)
 size = len(selected_word)
 user_raw_letter = ""
-user_letter = ""
+user_letter = []
 count = 0
+word = []
 
 while count < 10:
-    for x in range(size):
+    for x in selected_word:
+        print("_", end=" ")
+        word.append("_ ")  
         if user_letter == x:
-            print(f"{x}", end=" ")
-        else:
-                print("_", end=" ")
+            word.insert(x, user_letter)
 
+    
     user_raw_letter = input("\nPlease choose a letter: ")
     user_letter = user_raw_letter.lower()
     count += 1
