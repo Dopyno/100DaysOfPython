@@ -12,29 +12,22 @@ word_list = ["camel", "elephant", "fireman"]
 
 selected_word = random.choice(word_list)
 size = len(selected_word)
-user_raw_letter = ""
+counter = (size + 7)
 user_letter = []
 word = []
 
-size = len(selected_word)
-counter = (size + 7)
 
-print(len(selected_word))
-print(counter)
-while counter > 0:
-    for index, letter in enumerate(selected_word):
-        if letter == user_letter:
-            word[index] = user_letter
-            # print("Right")
-        else:
-            word.append("_ ")  
-            # print("Wrong")
-        print(word[index], end=" ")
+for x in range(size):
+    word += "_"
 
-    print()
-    user_letter = input("Guess a letter: ").lower()
-    counter -= 1
-    print(counter)
+print(word)
+    
+user_letter = input("Guess a letter: ").lower()
+
+for index, letter in enumerate(selected_word):
+    if letter == user_letter:
+        word[index] = user_letter
+
 
 
 
