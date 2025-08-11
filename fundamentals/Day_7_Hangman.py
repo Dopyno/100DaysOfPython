@@ -7,12 +7,66 @@
 import random
 
 word_list = ["camel", "elephant", "fireman"]
-# letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-
+stages = ['''
+  +---+
+  |   |
+  O   |
+ /|\\  |
+ / \\  |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\\  |
+ /    |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\\  |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========
+''']
 
 selected_word = random.choice(word_list)
 size = len(selected_word)
-counter = (size + 7)
+lives = 6
 user_letter = []
 word = []
 end_of_game = False
@@ -27,13 +81,17 @@ while not end_of_game:
         letter = selected_word[index]
         if letter == user_letter:
             word[index] = user_letter
-
-    for x in word:
-        print(x, end=" ")
+        else:
+            lives -= 1
+            print(stages[lives])
+            
+    print(f" ".join(word))
     
+
     if "_" not in word:
         end_of_game = True
         print("\nYou win!")
+    
 
 
 
