@@ -15,20 +15,25 @@ size = len(selected_word)
 counter = (size + 7)
 user_letter = []
 word = []
+end_of_game = False
 
-
-for x in range(size):
+for _ in range(size):
     word += "_"
 
-print(word)
+while not end_of_game:  
+    user_letter = input("\nGuess a letter: ").lower()
+
+    for index in range(size):
+        letter = selected_word[index]
+        if letter == user_letter:
+            word[index] = user_letter
+
+    for x in word:
+        print(x, end=" ")
     
-user_letter = input("Guess a letter: ").lower()
-
-for index, letter in enumerate(selected_word):
-    if letter == user_letter:
-        word[index] = user_letter
-
-
+    if "_" not in word:
+        end_of_game = True
+        print("\nYou win!")
 
 
 
