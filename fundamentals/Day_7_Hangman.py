@@ -23,15 +23,16 @@ print(len(selected_word))
 print(counter)
 while counter > 0:
     for index, letter in enumerate(selected_word):
-        if user_letter == letter:
+        if letter == user_letter:
             word[index] = user_letter
+            # print("Right")
         else:
             word.append("_ ")  
+            # print("Wrong")
         print(word[index], end=" ")
 
     print()
-    user_raw_letter = input("Please choose a letter: ")
-    user_letter = user_raw_letter.lower()
+    user_letter = input("Guess a letter: ").lower()
     counter -= 1
     print(counter)
 
