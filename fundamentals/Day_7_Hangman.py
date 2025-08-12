@@ -83,7 +83,7 @@ while not end_of_game:
             word[index] = user_letter
         else:
             lives -= 1
-            print(stages[lives])
+    print(stages[lives])
             
     print(f" ".join(word))
     
