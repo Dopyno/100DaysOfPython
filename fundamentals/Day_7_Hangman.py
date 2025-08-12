@@ -6,6 +6,14 @@
 
 import random
 
+hangman = """ _                                             
+| |                                            
+| |__   __ _ _ __   __ _ _ __ ___   __ _ _ __  
+| '_ \\ / _` | '_ \\ / _` | '_ ` _ \\ / _` | '_ \\ 
+| | | | (_| | | | | (_| | | | | | | (_| | | | |
+|_| |_|\\__,_|_| |_|\\__, |_| |_| |_|\\__,_|_| |_|
+                    __/ |                      
+                   |___/                       """
 word_list = ["camel", "elephant", "fireman"]
 stages = ['''
   +---+
@@ -63,8 +71,10 @@ stages = ['''
       |
 =========
 ''']
-print(len(stages))
+
+print(hangman)
 selected_word = random.choice(word_list)
+# print(selected_word)
 size = len(selected_word)
 lives = 6
 user_letter = []
@@ -79,22 +89,20 @@ while not end_of_game:
 
     for index in range(size):
         letter = selected_word[index]
+            
         if letter == user_letter:
             word[index] = user_letter
-        else:
-            lives -= 1
-    print(stages[lives])
+        
+    if user_letter not in word:
+      lives -= 1
+    # print(stages[lives])
             
     print(f" ".join(word))
-    
+    print(lives)
 
     if "_" not in word:
         end_of_game = True
         print("\nYou win!")
     
-
-
-
-
 
 # print(selected_word)
