@@ -63,7 +63,7 @@ stages = ['''
       |
 =========
 ''']
-
+print(len(stages))
 selected_word = random.choice(word_list)
 size = len(selected_word)
 lives = 6
