@@ -74,7 +74,6 @@ stages = ['''
 
 print(hangman)
 selected_word = random.choice(word_list)
-# print(selected_word)
 size = len(selected_word)
 lives = 6
 user_letter = []
@@ -86,7 +85,7 @@ for _ in range(size):
 
 while not end_of_game:  
     print(f" ".join(word))
-    # print(lives)
+
     user_letter = input("\nGuess a letter: ").lower()
 
     for index in range(size):
@@ -95,7 +94,6 @@ while not end_of_game:
         if letter == user_letter:
             word[index] = user_letter
             
-
     if "_" not in word:
         end_of_game = True
         print("\nYou win!")
@@ -103,8 +101,8 @@ while not end_of_game:
     if user_letter not in word:
         lives -= 1
         print(stages[lives])
+        if lives == 0:
+          end_of_game = True
+          print("You lose!!!")
+  
 
-    if lives == 0:
-        print("You lost!!!")
-        break
-# print(selected_word)
