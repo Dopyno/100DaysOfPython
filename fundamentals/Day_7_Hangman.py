@@ -85,6 +85,8 @@ for _ in range(size):
     word += "_"
 
 while not end_of_game:  
+    print(f" ".join(word))
+    # print(lives)
     user_letter = input("\nGuess a letter: ").lower()
 
     for index in range(size):
@@ -92,17 +94,17 @@ while not end_of_game:
             
         if letter == user_letter:
             word[index] = user_letter
-        
-    if user_letter not in word:
-      lives -= 1
-    # print(stages[lives])
             
-    print(f" ".join(word))
-    print(lives)
 
     if "_" not in word:
         end_of_game = True
         print("\nYou win!")
-    
 
+    if user_letter not in word:
+        lives -= 1
+        print(stages[lives])
+
+    if lives == 0:
+        print("You lost!!!")
+        break
 # print(selected_word)
