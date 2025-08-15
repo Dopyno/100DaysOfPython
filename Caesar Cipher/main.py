@@ -7,9 +7,12 @@ shift = int(input("Type the shift number: "))
 size = len(message)
 
 def encrypt(message, shift):
-    for i in range(size):
-       temp = alphabet.index(message[i])
-       new = temp + shift - 1
-       print(alphabet[new], end="")
+    for letter in message:
+       cipher_text = ""
+       temp = alphabet.index(letter)
+       new_position = temp + shift
+       new_letter = alphabet[new_position]
+       cipher_text += new_letter
+    print(f"The encoded text is {cipher_text}")
 
 encrypt(message, shift)
