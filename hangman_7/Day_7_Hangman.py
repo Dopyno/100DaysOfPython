@@ -40,6 +40,7 @@ while not end_of_game:
         continue  # skip to next loop iteration
     else:
         user_guesses.append(user_letter)
+        print(user_guesses)
         print(f"You guessed {user_letter}, tha't not in the word. You lose a life!")
 
 
@@ -60,5 +61,6 @@ while not end_of_game:
         if lives == 0:
           end_of_game = True
           print("You lose!!!")
+          print(f"The word was '{selected_word}'")
   
 
