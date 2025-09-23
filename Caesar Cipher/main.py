@@ -1,12 +1,13 @@
 from alphabet import alphabet
 
-direction = input("Type 'encode' to encrypt, type 'decode' to decrypt\n")
-message = input("Type your message: \n")
+direction = input("\nType 'encode' to encrypt, type 'decode' to decrypt\n")
+message = input("Type your message: \n").lower()
 shift = int(input("Type the shift number: "))
 
-size = len(message)
+# size = len(message)
 
 def encrypt(message, shift):
+    cipher_text = ""
     for letter in message:
        cipher_text = ""
        temp = alphabet.index(letter)
