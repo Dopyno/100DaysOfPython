@@ -32,8 +32,8 @@ while continue_game:
     answer =  input("Do you want to continue? ").lower()
     if answer == "no":
         continue_game = False
-        print("good bye!")
-        print("good bye!")
+        print("goodbye!")
+        print("goodbye!")
 
 
 
