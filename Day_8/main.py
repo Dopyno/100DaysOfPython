@@ -36,7 +36,7 @@ import math
 n = int(input("Check this number: "))
 
 
-def prime_checker(number):
+def prime_checker(number=n):
     if number == 1 or number == 2 or number == 3 or number == 5:
         print(f"This number {number} is a prime number!")
     elif number % 2 == 0 or number % 3 == 0 or number % 5 == 0:
@@ -44,7 +44,7 @@ def prime_checker(number):
     elif number % 1 == 0 and number % number == 0:
         print(f"This number {number} is a prime number!")
 
-def prime_check(number):
+def prime_check(number=n):
     is_prime = True
     for i in range(2, number):
         if number % i == 0:
@@ -56,4 +56,4 @@ def prime_check(number):
         
 
 prime_checker(n)
-prime_check(n)
+#prime_check(n)
