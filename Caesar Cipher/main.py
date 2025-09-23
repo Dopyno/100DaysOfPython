@@ -33,6 +33,7 @@ while continue_game:
     if answer == "no":
         continue_game = False
         print("good bye!")
+        print("good bye!")
 
 
 
