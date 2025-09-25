@@ -23,31 +23,67 @@
 #     print(f"{key}: {programming_dictionary[key]}")
 
 
-student_scores = {
-        "harry": 91,
-        "ron": 90,
-        "hermine": 87,
-        "draco": 79,
-        "neville": 67
+# student_scores = {
+#         "harry": 91,
+#         "ron": 90,
+#         "hermine": 87,
+#         "draco": 79,
+#         "neville": 67
+# }
+
+# student_grades = {}
+
+# for student in student_scores:
+#     if student_scores[student] > 90:
+#         print(student, " : ", student_scores[student], end="\n")
+#         student_grades[student] = "Outstanding"
+#     elif student_scores[student] > 80:
+#         student_grades[student] = "Exceeds Expectation"
+#         print(student, " : ", student_scores[student], end="\n")
+#     elif student_scores[student] > 70:
+#         student_grades[student] = "Acceptable"
+#         print(student, " : ", student_scores[student], end="\n")
+#     else:
+#         student_grades[student] = "Fail"
+#         print(student, " : ", student_scores[student], end="\n")
+
+# print("\n")
+
+# for key in student_grades:
+#     print(key, ": ", student_grades[key])
+
+# nesting
+capitals = {
+    "Germany": "Berlin",
+    "England": "London", 
+    "France": "Paris"
 }
-
-student_grades = {}
-
-for student in student_scores:
-    if student_scores[student] > 90:
-        print(student, " : ", student_scores[student], end="\n")
-        student_grades[student] = "Outstanding"
-    elif student_scores[student] > 80:
-        student_grades[student] = "Exceeds Expectation"
-        print(student, " : ", student_scores[student], end="\n")
-    elif student_scores[student] > 70:
-        student_grades[student] = "Acceptable"
-        print(student, " : ", student_scores[student], end="\n")
-    else:
-        student_grades[student] = "Fail"
-        print(student, " : ", student_scores[student], end="\n")
-
-print("\n")
-
-for key in student_grades:
-    print(key, ": ", student_grades[key])
+# nesting a list in a dictionary
+travel_log = {
+    "Germany": ["Berlin", "Hamburg", "Munich"],
+    "England": ["London", "Manchester", "Birmingham"],
+    "France": ["Paris", "Marseille", "Lille"]
+}
+#  nesting a dictionary in a dictionary
+travel_log = {
+    "Germany": {"cities_visited": ["Berlin", "Hamburg", "Munich"], "total_visits": 10},
+    "England": {"visited_places": ["London", "Manchester", "Birmingham"], "total_visits": 12},
+    "France": {"next_trip": ["Paris", "Marseille", "Lille"], "total_visits": 0}
+}
+#  nesting a dictionary in a list
+travel_log = [
+    {
+      "country": "Germany",
+      "cities_visited": ["Berlin", "Hamburg", "Munich"], 
+      "total_visits": 10
+      },
+    {
+        "country":  "England", 
+        "visited_places": ["London", "Manchester", "Birmingham"],
+         "total_visits": 12},
+    {
+        "country": "France", 
+        "next_trip": ["Paris", "Marseille", "Lille"], 
+        "total_visits": 0
+        }
+]
