@@ -29,7 +29,8 @@ def display_menu():
     print("7. 🎮 Day 7 - Hangman Game")
     print("8. 🔐 Day 8 - Caesar Cipher")
     print("9. 📚 Day 9 - Dictionaries")
-    print("10. 🏆 Secret Auction")
+    print("10. ⚡ Day 10 - Return Functions")
+    print("11. 🏆 Secret Auction")
     print("0. ❌ Exit")
     print()
     print("=" * 50)
@@ -46,7 +47,8 @@ def run_program(choice):
         7: ("hangman_7/Day_7_Hangman.py", "Day 7 - Hangman Game"),
         8: ("Caesar Cipher/main.py", "Day 8 - Caesar Cipher"),
         9: ("Day_9_Dictionaries/main.py", "Day 9 - Dictionaries"),
-        10: ("auction/main.py", "Secret Auction"),
+        10: ("Day_10_Return_Function/main.py", "Day 10 - Return Functions"),
+        11: ("auction/main.py", "Secret Auction"),
     }
     
     if choice in programs:
@@ -86,7 +88,7 @@ def main():
         display_menu()
         
         try:
-            choice = input("👉 Select a program (0-10): ")
+            choice = input("👉 Select a program (0-11): ")
             
             if choice == '0':
                 clear_screen()
@@ -95,10 +97,10 @@ def main():
                 break
             
             choice_num = int(choice)
-            if 1 <= choice_num <= 10:
+            if 1 <= choice_num <= 11:
                 run_program(choice_num)
             else:
-                print("❌ Please enter a number between 0 and 10")
+                print("❌ Please enter a number between 0 and 11")
                 input("📋 Press Enter to continue...")
                 
         except ValueError:
