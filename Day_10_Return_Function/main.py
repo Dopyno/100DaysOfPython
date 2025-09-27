@@ -10,7 +10,5 @@ def format_name(first_name, last_name):
 # name = format_name("marius", "iordan")
 print(format_name(input("What is your first name: "), input("What is your last name: ")))
   
-print()
-print()
-print()
+
 print()
