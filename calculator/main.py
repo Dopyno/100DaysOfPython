@@ -29,7 +29,7 @@ calculate = True
 def add(n1, n2):
     return n1 + n2
 
-
+ 
 def subtract(n1, n2):
     return n1 - n2
 
@@ -55,6 +55,7 @@ result = calculation_function(first_num, second_num)
 
 
 
+print(f"\n{first_num} {operation_symbol} {second_num} = {result}")
 print(f"\n{first_num} {operation_symbol} {second_num} = {result}")
 
 
