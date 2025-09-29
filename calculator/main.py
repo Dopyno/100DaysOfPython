@@ -56,7 +56,6 @@ result = calculation_function(first_num, second_num)
 
 
 print(f"\n{first_num} {operation_symbol} {second_num} = {result}")
-print(f"\n{first_num} {operation_symbol} {second_num} = {result}")
 
 
 
