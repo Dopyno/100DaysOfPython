@@ -47,7 +47,7 @@ while play:
     if user_choice.lower() == "yes":
         clear_screen()
         print(logo)
-        print(f"Your cards [{user}], current score: {user_total}")
+        print(f"Your cards [{user}], current score: {cards_total(user)}")
         print(f"Computer first card [{computer}]")
         answer = ""
         answer = input("Type 'Yes' to get another card, type 'No' to pass: ")
@@ -55,7 +55,7 @@ while play:
             count += 1
             user = pick_numbers(count)
 
-            print(f"Your cards [{user}], current score: {cards_total()}")
+            print(f"Your cards [{user}], current score: {cards_total(user)}")
             print(f"Computer first card [{computer}]")
 
     if user_choice.lower() == "no":
