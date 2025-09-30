@@ -1,4 +1,5 @@
 from art import clear_screen, logo
+import random
 
 ############### Blackjack Project #####################
 
@@ -20,9 +21,45 @@ from art import clear_screen, logo
 ## The computer is the dealer.
 
 cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+play = True
+count = 2
+
+number = lambda: random.choice(cards)
 
 
+def pick_numbers(num_picks):
+    return random.choices(cards, k=num_picks)
 
+
+user = pick_numbers(2)
+computer = pick_numbers(1)
+user_total = 0
+
+
+def cards_total(user):
+    for card in user:
+        user_total += card
+    return user_total
+
+
+while play:
+    user_choice = input("Do you want to play a game of Blackjack? Type 'Yes' or 'No': ")
+    if user_choice.lower() == "yes":
+        clear_screen()
+        print(logo)
+        print(f"Your cards [{user}], current score: {user_total}")
+        print(f"Computer first card [{computer}]")
+        answer = ""
+        answer = input("Type 'Yes' to get another card, type 'No' to pass: ")
+        if answer.lower() == "yes":
+            count += 1
+            user = pick_numbers(count)
+
+            print(f"Your cards [{user}], current score: {cards_total()}")
+            print(f"Computer first card [{computer}]")
+
+    if user_choice.lower() == "no":
+        play = False
 
 
 ##################### Hints #####################
