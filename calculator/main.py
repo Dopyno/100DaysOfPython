@@ -14,22 +14,12 @@ print(logo)
 calculate = True
 
 
-# def calculator(first_number, operation, second_number):
-#     """Calculate basic operations."""
-#     if operation == "*":
-#         return first_number * second_number
-#     elif operation == "/":
-#         return first_number / second_number
-#     elif operation == "+":
-#         return first_number + second_number
-#     elif operation == "-":
-#         return first_number - second_number
 
 
 def add(n1, n2):
     return n1 + n2
 
- 
+
 def subtract(n1, n2):
     return n1 - n2
 
@@ -50,18 +40,33 @@ for symbol in operation:
 operation_symbol = input("Pick an operation from the line above: ")
 second_num = int(input("What is your second number: "))
 calculation_function = operation[operation_symbol]
-result = calculation_function(first_num, second_num)
+first_result = calculation_function(first_num, second_num)
+
+
+print(f"\n{first_num} {operation_symbol} {second_num} = {first_result}")
+
+operation_symbol = input("Pick another operation: ")
+third_num = int(input("What's the next number: "))
+calculation_function = operation[operation_symbol]
+second_result = calculation_function(first_result, third_num)
+
+print(f"\n{first_result} {operation_symbol} {third_num} = {second_result}")
 
 
 
 
-print(f"\n{first_num} {operation_symbol} {second_num} = {result}")
 
 
-
-
-
-
+# def calculator(first_number, operation, second_number):
+#     """Calculate basic operations."""
+#     if operation == "*":
+#         return first_number * second_number
+#     elif operation == "/":
+#         return first_number / second_number
+#     elif operation == "+":
+#         return first_number + second_number
+#     elif operation == "-":
+#         return first_number - second_number
 
 # while calculate:
 #     result = calculator(first_num, operation, second_num)
