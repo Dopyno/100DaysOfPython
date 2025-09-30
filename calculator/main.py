@@ -9,11 +9,6 @@ def clear_screen():
     os.system("cls" if os.name == "nt" else "clear")
 
 
-print(logo)
-
-calculate = True
-
-
 
 
 def add(n1, n2):
@@ -34,28 +29,36 @@ def divide(n1, n2):
 
 operation = {"+": add, "-": subtract, "*": multiply, "/": divide}
 
-first_num = int(input("What is your first number: "))
-for symbol in operation:
-    print(symbol)
-operation_symbol = input("Pick an operation from the line above: ")
-second_num = int(input("What is your second number: "))
-calculation_function = operation[operation_symbol]
-first_result = calculation_function(first_num, second_num)
+
+def calculator():
+    print(logo)
+    first_num = float(input("What is your first number: "))
+    for symbol in operation:
+        print(symbol)
+    calculate = True
+
+    while calculate:
+        operation_symbol = input("Pick an operation: ")
+        second_num = float(input("What's your next number: "))
+        calculation_function = operation[operation_symbol]
+        answer = calculation_function(first_num, second_num)
+
+        print(f"\n{first_num} {operation_symbol} {second_num} = {answer}")
+
+        if (
+            input(
+                f"Type 'Yes' to continue calculation with {answer}, or type 'no' to start a new calculation: "
+            ).lower()
+            == "yes"
+        ):
+            clear_screen()
+            first_num = answer
+        else:
+            calculate = False
+            calculator()
 
 
-print(f"\n{first_num} {operation_symbol} {second_num} = {first_result}")
-
-operation_symbol = input("Pick another operation: ")
-third_num = int(input("What's the next number: "))
-calculation_function = operation[operation_symbol]
-second_result = calculation_function(first_result, third_num)
-
-print(f"\n{first_result} {operation_symbol} {third_num} = {second_result}")
-
-
-
-
-
+calculator()
 
 # def calculator(first_number, operation, second_number):
 #     """Calculate basic operations."""
