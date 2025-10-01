@@ -27,39 +27,63 @@ count = 2
 number = lambda: random.choice(cards)
 
 
-def pick_numbers(num_picks):
-    return random.choices(cards, k=num_picks)
+def deal_cards():
+    return random.choices(cards)
 
 
-user = pick_numbers(2)
-computer = pick_numbers(1)
+def calculate_score(players_cards):
+    total = sum(players_cards)
+
+    # Check for Blackjack
+    if total == 21 and len(players_cards) == 2:
+        return 0  # special code for Blackjack
+
+    # Handle Aces (11 -> 1 if total > 21)
+    while total > 21 and 11 in players_cards:
+        players_cards.remove(11)
+        players_cards.append(1)
+        total = sum(players_cards)
+
+    return total
+
+
+user_cards = []
+computer_cards = []
 user_total = 0
 
+user_cards = [deal_cards(), deal_cards()]
 
-def cards_total(user):
-    for card in user:
-        user_total += card
-    return user_total
+computer_cards = [deal_cards(), deal_cards()]
 
 
-while play:
-    user_choice = input("Do you want to play a game of Blackjack? Type 'Yes' or 'No': ")
-    if user_choice.lower() == "yes":
-        clear_screen()
-        print(logo)
-        print(f"Your cards [{user}], current score: {cards_total(user)}")
-        print(f"Computer first card [{computer}]")
-        answer = ""
-        answer = input("Type 'Yes' to get another card, type 'No' to pass: ")
-        if answer.lower() == "yes":
-            count += 1
-            user = pick_numbers(count)
+print(calculate_score(user_cards))
+print(calculate_score(computer_cards))
 
-            print(f"Your cards [{user}], current score: {cards_total(user)}")
-            print(f"Computer first card [{computer}]")
 
-    if user_choice.lower() == "no":
-        play = False
+# def cards_total(user):
+#     for card in user:
+#         user_total += card
+#     return user_total
+
+
+# while play:
+#     user_choice = input("Do you want to play a game of Blackjack? Type 'Yes' or 'No': ")
+#     if user_choice.lower() == "yes":
+#         clear_screen()
+#         print(logo)
+#         print(f"Your cards [{user_cards}], current score: {cards_total(user_cards)}")
+#         print(f"Computer first card [{computer_cards}]")
+#         answer = ""
+#         answer = input("Type 'Yes' to get another card, type 'No' to pass: ")
+#         if answer.lower() == "yes":
+#             count += 1
+#             user_cards = pick_numbers(count)
+
+#             print(f"Your cards [{user_cards}], current score: {cards_total(user_cards)}")
+#             print(f"Computer first card [{computer_cards}]")
+
+#     if user_choice.lower() == "no":
+#         play = False
 
 
 ##################### Hints #####################
