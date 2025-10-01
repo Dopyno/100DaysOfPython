@@ -24,11 +24,11 @@ cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 play = True
 count = 2
 
-number = lambda: random.choice(cards)
+# number = lambda: random.choice(cards)
 
 
 def deal_cards():
-    return random.choices(cards)
+    return random.choice(cards)
 
 
 def calculate_score(players_cards):
@@ -51,10 +51,13 @@ user_cards = []
 computer_cards = []
 user_total = 0
 
+
 user_cards = [deal_cards(), deal_cards()]
 
 computer_cards = [deal_cards(), deal_cards()]
 
+print(user_cards)
+print(computer_cards)
 
 print(calculate_score(user_cards))
 print(calculate_score(computer_cards))
