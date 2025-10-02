@@ -51,12 +51,13 @@ user_cards = []
 computer_cards = []
 user_total = 0
 
+user_action = input("Do you want to play a game of Blackjack? Type 'Y' or 'No': ")
+
 
 user_cards = [deal_cards(), deal_cards()]
 
 computer_cards = [deal_cards(), deal_cards()]
 
-print(user_cards)
 print(computer_cards)
 
 print(calculate_score(user_cards))
