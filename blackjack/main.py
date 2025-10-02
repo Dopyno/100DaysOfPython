@@ -52,6 +52,7 @@ def calculate_score(players_cards):
 user_cards = []
 computer_cards = []
 user_total = 0
+comp_sum = 0
 
 
 # if user_action.lower() == "y":
@@ -75,12 +76,41 @@ def play_game():
                 print(
                     f"Computer cards: [{computer_cards[0]}], current score: {computer_cards[0]}"
                 )
+                user_total = calculate_score(user_cards)
+
                 action = input("Type 'Y' to get another card, type 'N' to pass: ")
                 if action.lower() == "y":
                     user_cards.append(deal_cards())
-                elif action.lower() == "n":
+                    user_total = calculate_score(user_cards)
+                if user_total == 21:
+                    print("You win! 🥇")
+                elif user_total > 21:
+                    print("You lose! 🤡")
+                if action.lower() == "n":
                     another_card = False
-
+        for num in range(6):
+            comp_sum = calculate_score(computer_cards)
+            if comp_sum < 17:
+                computer_cards.append(deal_cards)
+                comp_sum = calculate_score(computer_cards)
+            if comp_sum > 21:
+                print("You win! 🥇")
+                break
+        print(
+            f"Your cards: [{user_cards}], current score: {calculate_score(user_cards)}"
+        )
+        print(
+            f"Computer cards: [{computer_cards}], current score: {calculate_score(computer_cards)}"
+        )
+        if user_total == comp_sum:
+            print("Draw! 🤪")
+            break
+        if comp_sum > user_total:
+            print("You lose! 🥇")
+            break
+        if user_total > comp_sum:
+            print("You win! 🥇")
+            break
         if user_action.lower() == "n":
             play = False
     play_game()
