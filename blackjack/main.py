@@ -28,10 +28,12 @@ count = 2
 
 
 def deal_cards():
+    """Generate random cards from the deck."""
     return random.choice(cards)
 
 
 def calculate_score(players_cards):
+    """Calculate total score of the cards."""
     total = sum(players_cards)
 
     # Check for Blackjack
@@ -53,15 +55,13 @@ user_total = 0
 
 user_action = input("Do you want to play a game of Blackjack? Type 'Y' or 'No': ")
 
+if user_action.lower() == 'y':
 
-user_cards = [deal_cards(), deal_cards()]
-
-computer_cards = [deal_cards(), deal_cards()]
-
-print(computer_cards)
-
-print(calculate_score(user_cards))
-print(calculate_score(computer_cards))
+    user_cards = [deal_cards(), deal_cards()]
+    computer_cards = [deal_cards(), deal_cards()]
+else:
+    print("Thank you for playing today!")
+  
 
 
 # def cards_total(user):
