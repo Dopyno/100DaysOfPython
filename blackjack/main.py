@@ -53,17 +53,40 @@ user_cards = []
 computer_cards = []
 user_total = 0
 
-user_action = input("Do you want to play a game of Blackjack? Type 'Y' or 'No': ")
 
-if user_action.lower() == 'y':
+# if user_action.lower() == "y":
+#     play = True
+def play_game():
+    play = True
+    while play:
+        user_action = input(
+            "Do you want to play a game of Blackjack? Type 'Y' or 'N': "
+        )
+        if user_action.lower() == "y":
+            user_cards = [deal_cards(), deal_cards()]
+            computer_cards = [deal_cards(), deal_cards()]
 
-    user_cards = [deal_cards(), deal_cards()]
-    computer_cards = [deal_cards(), deal_cards()]
-else:
-    print("Thank you for playing today!")
-  
+            print(logo)
+            another_card = True
+            while True:
+                print(
+                    f"Your cards: [{user_cards}], current score: {calculate_score(user_cards)}"
+                )
+                print(
+                    f"Computer cards: [{computer_cards[0]}], current score: {computer_cards[0]}"
+                )
+                action = input("Type 'Y' to get another card, type 'N' to pass: ")
+                if action.lower() == "y":
+                    user_cards.append(deal_cards())
+                elif action.lower() == "n":
+                    computer_cards.append(deal_cards())
+
+        if user_action.lower() == "n":
+            play = False
+    play_game()
 
 
+play_game()
 # def cards_total(user):
 #     for card in user:
 #         user_total += card
