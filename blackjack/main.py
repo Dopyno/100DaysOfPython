@@ -68,7 +68,7 @@ def play_game():
 
             print(logo)
             another_card = True
-            while True:
+            while another_card:
                 print(
                     f"Your cards: [{user_cards}], current score: {calculate_score(user_cards)}"
                 )
@@ -79,7 +79,7 @@ def play_game():
                 if action.lower() == "y":
                     user_cards.append(deal_cards())
                 elif action.lower() == "n":
-                    computer_cards.append(deal_cards())
+                    another_card = False
 
         if user_action.lower() == "n":
             play = False
