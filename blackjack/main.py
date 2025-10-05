@@ -20,7 +20,7 @@ import random
 ## Cards are not removed from the deck as they are drawn.
 ## The computer is the dealer.
 
-cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+
 play = True
 count = 2
 
@@ -28,8 +28,10 @@ count = 2
 
 
 def deal_cards():
-    """Generate random cards from the deck."""
-    return random.choice(cards)
+    """Generate and returns random cards from the deck."""
+    cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
+    card = random.choice(cards)
+    return card
 
 
 def calculate_score(players_cards):
@@ -53,6 +55,10 @@ user_cards = []
 computer_cards = []
 user_total = 0
 comp_sum = 0
+
+for _ in range(2):
+    user_cards.append(deal_cards())
+    computer_cards.append(deal_cards())
 
 
 # if user_action.lower() == "y":
@@ -88,11 +94,10 @@ def play_game():
                     print("You lose! 🤡")
                 if action.lower() == "n":
                     another_card = False
-        for num in range(6):
+
+        while comp_sum < 17:
+            computer_cards.append(deal_cards)
             comp_sum = calculate_score(computer_cards)
-            if comp_sum < 17:
-                computer_cards.append(deal_cards)
-                comp_sum = calculate_score(computer_cards)
             if comp_sum > 21:
                 print("You win! 🥇")
                 break
