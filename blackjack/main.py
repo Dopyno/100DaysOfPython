@@ -32,7 +32,7 @@ def deal_cards():
 
 
 def calculate_score(cards):
-    """Calculate total score of the cards."""
+    """Calculate total score of the player cards."""
     total = sum(cards)
     # Check for Blackjack
     if total == 21 and len(cards) == 2:
@@ -47,6 +47,7 @@ def calculate_score(cards):
 
 
 def compare(user_score, computer_score):
+    """Compare the total scores!"""
     if user_score == computer_score:
         return "Draw 🧐"
     elif computer_score == 0:
@@ -64,14 +65,13 @@ def compare(user_score, computer_score):
 
 
 def play_game():
+    """Play game"""
     print(logo)
     is_game_over = False
 
     user_cards = []
     computer_cards = []
-    user_total = 0
-    comp_sum = 0
-
+   
     for _ in range(2):
         user_cards.append(deal_cards())
         computer_cards.append(deal_cards())
