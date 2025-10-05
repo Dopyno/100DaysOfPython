@@ -30,5 +30,5 @@ def play_game():
         )
         player_number = int(input("Make a guess: "))
         print(compare(player_number, number_to_guess))
-    play_game()
+        play_game()
 play_game()
