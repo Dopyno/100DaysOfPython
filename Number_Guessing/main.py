@@ -1,15 +1,33 @@
 import random
 from art import clear_screen, logo
 
+# EASY_LEVEL = 20
+# HARD_LEVEL = 5
+# MASTER = 3
 
-def compare(player_num, random_num):
+# def set_difficulty():
+#     """CHOOSE A LEVEL OF DIFFICULTY"""
+#     level = input("Choose a difficulty. Type 'easy', 'hard' or 'master': ")
+#     if level == "easy":
+#         return EASY_LEVEL
+#     else:
+#         return HARD_LEVEL
+
+
+def compare(player_num, random_num, number_to_guess):
     """Compare the numbers for feedback!"""
     if player_num > random_num:
         print("Too big! ⬇️")
         print("Guess again!")
+        return False
     elif player_num < random_num:
         print("Too low! ⬆️")
         print("Guess again!")
+        return False
+    elif player_num == random_num:
+        print("You win! 🥇")
+        print(f"The number was {number_to_guess}")
+        return True
 
 
 def play_game():
@@ -29,11 +47,12 @@ def play_game():
             f"You have {counter} attempts remaining to guess the number."
         )
         player_number = int(input("Make a guess: "))
-        compare(player_number, number_to_guess)
-        if player_number == number_to_guess:
-            print("You win! 🥇")
-            print(f"The number was {number_to_guess}")
-            return 0
+        if compare(player_number, number_to_guess, number_to_guess):
+            break
+        # if player_number == number_to_guess:
+        #     print("You win! 🥇")
+        #     print(f"The number was {number_to_guess}")
+        #     return 0
         counter -= 1
         if counter == 0:
             print("You lose! 🤪")
