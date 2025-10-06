@@ -6,8 +6,10 @@ def compare(player_num, random_num):
     """Compare the numbers for feedback!"""
     if player_num > random_num:
         print("Too big! ⬇️")
+        print("Guess again!")
     elif player_num < random_num:
-         print("Too low! ⬆️")
+        print("Too low! ⬆️")
+        print("Guess again!")
 
 
 def play_game():
@@ -30,6 +32,7 @@ def play_game():
         compare(player_number, number_to_guess)
         if player_number == number_to_guess:
             print("You win! 🥇")
+            print(f"The number was {number_to_guess}")
             return 0
         counter -= 1
         if counter == 0:
