@@ -8,6 +8,7 @@ def generate(data_set):
 
 
 def refine_data(dataSet1):
+    """Format the account data."""
     name = dataSet1["name"]
     description = dataSet1["description"]
     country = dataSet1["country"]
@@ -15,6 +16,11 @@ def refine_data(dataSet1):
 
     return name, description, country, followers
 
+# def format_data(account):
+#     acc_name = account["name"]
+#     acc_descr = account["description"]
+#     acc_country = account["country"]
+#     return f"{acc_name}, a {acc_descr}, from {acc_country}"
 
 def play_game():
     play = True
@@ -23,6 +29,8 @@ def play_game():
     # print(logo)
     version_a = refine_data(generate(data))
     version_b = refine_data(generate(data))
+    if version_a == version_b:
+        version_b = refine_data(generate(data))
 
     while play:
         clear_screen()
@@ -32,11 +40,11 @@ def play_game():
         print(f"Score: {score}")
 
         print(
-            f"Compare: A => {version_a[0]}, {version_a[1]}, {version_a[2]}"
+            f"Compare: A => {version_a[0]}, a {version_a[1]}, from {version_a[2]}"
         )
         print(vs)
         print(
-            f"Compare: B => {version_b[0]}, {version_b[1]}, {version_b[2]}"
+            f"Compare: B => {version_b[0]}, a {version_b[1]}, from {version_b[2]}"
         )
 
         user = input("Who has more followers? 'A' or 'B': ").lower()
