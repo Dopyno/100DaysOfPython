@@ -16,11 +16,17 @@ double_espresso = """
 `|      |  Double Espresso
   `-__-'    """
 
-latte = """ 
+hot_chocolate = """ 
   .=%%=.
 ,|`=%%='|
 ||      |
 `|      |  Hot Chocolate
+  `-__-'"""
+
+latte = """ 
+,|`=%%='|
+||      |
+`|      |  Latte
   `-__-'"""
 
 logo = """ 
