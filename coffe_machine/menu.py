@@ -13,7 +13,7 @@ MENU = {
         },
         "cost": 3,
     },
-    "hot_chocolate": {
+    "chocolate": {
         "ingredients": {
             "water": 100,
             "milk": 100,

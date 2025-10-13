@@ -16,7 +16,7 @@ double_espresso = """
 `|      |  Double Espresso
   `-__-'    """
 
-hot_chocolate = """ 
+chocolate = """ 
   .=%%=.
 ,|`=%%='|
 ||      |
