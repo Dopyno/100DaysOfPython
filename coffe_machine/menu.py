@@ -6,7 +6,7 @@ MENU = {
         },
         "cost": 1.5,
     },
-    "double_espresso": {
+    "double": {
         "ingredients": {
             "water": 100,
             "coffee": 36
@@ -27,7 +27,7 @@ MENU = {
             "milk": 150,
             "coffee": 18
         },
-        "cost": 3.5,
+        "cost": 4,
     },
 }
 
