@@ -40,7 +40,7 @@ def print_menu():
 def refill():
     print("Please enter the values in ml and g: ")
     for item in resources:
-        value = input(f"{item}: ")
+        value = int(input(f"{item}: "))
         resources[item] += value
     print("All has been added successfully!✅")
 
@@ -65,7 +65,9 @@ match user_action:
         print(art.latte)
         make_coffee(user_action)
     case "report": print_report()
-    case "refill": refill()
+    case "refill":
+        refill()
+        print_report()
 
 
 
