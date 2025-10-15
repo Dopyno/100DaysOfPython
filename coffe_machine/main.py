@@ -1,5 +1,5 @@
 import art
-from menu import MENU, resources
+from menu import MENU, resources, actions, extra_steps
 from clear import clear_screen
 import time
 from account import money, receipt, total_receipt
@@ -30,14 +30,11 @@ def make_coffee(drink):
     print("\n")
     print("Preparing your coffee ⾖ ", end="")
     spinner()
+    progress_bar("Heating water: ", 3)
+    progress_bar("Brewing coffee: ", 2)
     time.sleep(2)
-    if drink == "chocolate":
-        print("Adding milk...🥛")
-        time.sleep(1)
-    if drink == "latte":
-        print("Adding steamed milk...🥛")
-        time.sleep(1)
-        print("Adding cream..🥤")
+    for step in extra_steps.get(drink, []):
+        print(step)
         time.sleep(1)
     for item in MENU[drink]["ingredients"]:
         resources[item] -= MENU[drink]["ingredients"][item]
@@ -46,7 +43,7 @@ def make_coffee(drink):
     total_receipt.append(MENU[drink]["cost"])
     receipt.append(drink.title())
 
-    print("Your coffee has been prepared!")
+    print("\nYour coffee has been prepared!")
     print("Please take your drink 🥤!")
 
 
@@ -98,7 +95,7 @@ def refill():
     print("Please enter the values in ml and g: ")
     for item in resources:
         try:
-            value = int(input(f"{item}: "))
+            value = int(input(f"{item}: ") or "0")
             resources[item] += value
         except ValueError:
             print("Invalid input❌. Enter a number!")
@@ -134,6 +131,15 @@ def starting_coffee_machine():
         print(".", end="")
         sys.stdout.flush()
     print("\nCoffee machine is ready!☕️")
+
+
+def progress_bar(task, duration=3):
+    print(task, end="")
+    for _ in range(duration * 5):
+        time.sleep(0.2)
+        print("█", end="")
+        sys.stdout.flush()
+    print()
 
 
 def print_receipt():
@@ -215,18 +221,8 @@ def start():
         user_action = input(
             "Please select your coffee: (espresso / double / chocolate / latte / receipt or EXIT): "
         )
-        if user_action not in [
-            "espresso",
-            "double",
-            "chocolate",
-            "latte",
-            "receipt",
-            "exit",
-            "report",
-            "refill",
-            "cash",
-        ]:
-            print("Invalid option, please try again!")
+        if user_action not in actions:
+            print("Invalid option, please try again!❌")
             continue
 
         match user_action:
