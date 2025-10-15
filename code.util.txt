@@ -1,0 +1,76 @@
+import os
+
+def clear_screen():
+    """Clear the terminal screen"""
+    os.system("cls" if os.name == "nt" else "clear")
+
+def spinner():
+    """Create effect for preparing the coffee"""
+    spinner = ["|", "/", "-", "\\"]
+
+    for _ in range(20):  # se rotește de 20 de ori
+        for simbol in spinner:
+            sys.stdout.write(simbol)
+            sys.stdout.flush()
+            time.sleep(0.1)
+            sys.stdout.write("\b")  # șterge simbolul anterior
+    print("")
+
+def loading(x):
+    """Create the loading effect"""
+    for _ in range(x):
+        time.sleep(0.5)
+        print(".", end="")
+        sys.stdout.flush()
+
+def authenticate():
+    password = input("Enter technician password: ")
+    if password == TECHNICIAN_PASSWORD:
+        return True
+    else:
+        print("❌ Access denied. Incorrect password.")
+        return False
+
+
+def cash_out():
+    if not authenticate():
+        return
+    # restul codului...
+
+def refill():
+    if not authenticate():
+        return
+    print("Please enter the values in ml and g: ")
+    for item in resources:
+        try:
+            value = int(input(f"{item}: "))
+            resources[item] += value
+        except ValueError:
+            print("Invalid input. Skipping.")
+    print("All has been added successfully!✅")
+
+def print_report():
+    if not authenticate():
+        return
+    print("\n======  REPORT  ======")
+    # restul codului...
+
+import getpass
+
+def authenticate():
+    password = getpass.getpass("Enter technician password: ")
+    return password == TECHNICIAN_PASSWORD
+==================================================================================
+
+import getpass
+
+TECHNICIAN_PASSWORD = "admin123"
+
+def authenticate():
+    password = getpass.getpass("Enter technician password: ")
+    if password == TECHNICIAN_PASSWORD:
+        return True
+    else:
+        print("❌ Access denied. Incorrect password.")
+        return False
+

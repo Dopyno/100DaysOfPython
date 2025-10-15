@@ -4,9 +4,23 @@ from clear import clear_screen
 import time
 from account import money, receipt, total_receipt
 import sys
+from authenticate import TECHNICIAN_PASSWORD
+import getpass
+
+
+def authenticate():
+    """Require to authenticate if you want to access technician menu"""
+    password = getpass.getpass("Enter technician password: ") # password similar Linux
+    if password == TECHNICIAN_PASSWORD:
+        print("Password accepted! ✅")
+        return True
+    else:
+        print("❌ Access denied. Incorrect password.")
+        return False
 
 
 def make_coffee(drink):
+    """function that select the drink by user selection"""
     print("\n")
     print("Preparing your coffee ⾖ ", end="")
     spinner()
@@ -30,6 +44,9 @@ def make_coffee(drink):
 
 
 def print_report():
+    """Print report for technician only"""
+    if not authenticate():
+        return
     print("\n======  REPORT  ======")
     print("Resources: ")
     for item in resources:
@@ -41,6 +58,7 @@ def print_report():
 
 
 def print_menu():
+    """Print menu for customers"""
     print("\n=======  MENU  =======")
     print("1. Espresso: £1.5")
     print("2. Double Espresso: £3")
@@ -56,6 +74,9 @@ def print_menu():
 
 
 def refill():
+    """Refill method only for technicians."""
+    if not authenticate():
+        return
     print("Please enter the values in ml and g: ")
     for item in resources:
         try:
@@ -69,6 +90,9 @@ def refill():
 
 
 def cash_out():
+    """Withdraw the founds only by technicians."""
+    if not authenticate():
+        return
     if (input("Do you want to withdrew all the money (Y / N): ")).lower() == "y":
         money["pounds"] = 0
         print("Processing", end="")
@@ -83,6 +107,7 @@ def cash_out():
 
 
 def starting_coffee_machine():
+    """Staring the coffee machine"""
     time.sleep(1)
     print(art.logo)
     print("Starting the coffee machine♨️ ", end="")
@@ -94,6 +119,7 @@ def starting_coffee_machine():
 
 
 def print_receipt():
+    """Print the receipt only for customers"""
     clear_screen()
     global receipt, total_receipt
     print("\n=====  Receipt  =====")
@@ -115,6 +141,7 @@ def print_receipt():
 
 
 def spinner():
+    """Create effect for preparing the coffee"""
     spinner = ["|", "/", "-", "\\"]
 
     for _ in range(20):  # se rotește de 20 de ori
@@ -127,6 +154,7 @@ def spinner():
 
 
 def loading(x):
+    """Create the loading effect"""
     for _ in range(x):
         time.sleep(0.5)
         print(".", end="")

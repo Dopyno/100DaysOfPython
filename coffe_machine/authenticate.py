@@ -1,0 +1,1 @@
+TECHNICIAN_PASSWORD = "admin"
