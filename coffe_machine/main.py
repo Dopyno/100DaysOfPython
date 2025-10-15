@@ -58,8 +58,13 @@ def print_menu():
 def refill():
     print("Please enter the values in ml and g: ")
     for item in resources:
-        value = int(input(f"{item}: "))
-        resources[item] += value
+        try:
+            value = int(input(f"{item}: "))
+            resources[item] += value
+        except ValueError:
+            print("Invalid input❌. Enter a number!")
+            return
+
     print("All has been added successfully!✅")
 
 
