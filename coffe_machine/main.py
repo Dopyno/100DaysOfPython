@@ -37,6 +37,7 @@ def print_report():
     for item in money:
         print(f"Total money: {money[item]}")
     print("=======================")
+    input("Press Enter to return to the main menu. ")
 
 
 def print_menu():
