@@ -10,7 +10,7 @@ import getpass
 
 def authenticate():
     """Require to authenticate if you want to access technician menu"""
-    password = getpass.getpass("Enter technician password: ") # password similar Linux
+    password = getpass.getpass("Enter technician password: ")  # password similar Linux
     if password == TECHNICIAN_PASSWORD:
         print("Password accepted! ✅")
         return True
@@ -21,6 +21,9 @@ def authenticate():
 
 def make_coffee(drink):
     """function that select the drink by user selection"""
+    if not check_stock(drink): 
+        print("Cannot prepare coffee, please refill the machine.") 
+        return
     print("\n")
     print("Preparing your coffee ⾖ ", end="")
     spinner()
@@ -41,6 +44,16 @@ def make_coffee(drink):
 
     print("Your coffee has been prepared!")
     print("Please take your drink 🥤!")
+
+
+def check_stock(coffee):
+    for item in MENU[coffee]["ingredients"]:
+        required = MENU[coffee]["ingredients"][item]
+        available = resources[item]
+        if required > available:
+            print(f"❌Sorry insufficient {item}. Needed:  {required}, Available: {available}")
+            return False
+    return True
 
 
 def print_report():
