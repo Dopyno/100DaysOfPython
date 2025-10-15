@@ -4,14 +4,14 @@ MENU = {
             "water": 50,
             "coffee": 18
         },
-        "cost": 1.5,
+        "cost": 150,
     },
     "double": {
         "ingredients": {
             "water": 100,
             "coffee": 36
         },
-        "cost": 3,
+        "cost": 300,
     },
     "chocolate": {
         "ingredients": {
@@ -19,7 +19,7 @@ MENU = {
             "milk": 100,
             "coffee": 15
         },
-        "cost": 3.5,
+        "cost": 350,
     },
     "latte": {
         "ingredients": {
@@ -27,7 +27,7 @@ MENU = {
             "milk": 150,
             "coffee": 18
         },
-        "cost": 4,
+        "cost": 400,
     },
 }
 

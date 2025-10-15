@@ -21,8 +21,11 @@ def authenticate():
 
 def make_coffee(drink):
     """function that select the drink by user selection"""
-    if not check_stock(drink): 
-        print("Cannot prepare coffee, please refill the machine.") 
+    if not check_money(drink):
+        print("Sorry, insufficient funds for your drink!❌")
+        return
+    if not check_stock(drink):
+        print("Cannot prepare coffee, please refill the machine.")
         return
     print("\n")
     print("Preparing your coffee ⾖ ", end="")
@@ -38,7 +41,8 @@ def make_coffee(drink):
         time.sleep(1)
     for item in MENU[drink]["ingredients"]:
         resources[item] -= MENU[drink]["ingredients"][item]
-    money["pounds"] += MENU[drink]["cost"]
+    # money["pounds"] += MENU[drink]["cost"]     double line already adding on check_money
+
     total_receipt.append(MENU[drink]["cost"])
     receipt.append(drink.title())
 
@@ -51,7 +55,9 @@ def check_stock(coffee):
         required = MENU[coffee]["ingredients"][item]
         available = resources[item]
         if required > available:
-            print(f"❌Sorry insufficient {item}. Needed:  {required}, Available: {available}")
+            print(
+                f"❌Sorry insufficient {item}. Needed:  {required}, Available: {available}"
+            )
             return False
     return True
 
@@ -64,8 +70,7 @@ def print_report():
     print("Resources: ")
     for item in resources:
         print(f"{item}: {resources[item]}")
-    for item in money:
-        print(f"Total money: {money[item]}")
+    print(f"Total money: £{money['pounds'] / 100:.2f}")
     print("=======================")
     input("Press Enter to return to the main menu. ")
 
@@ -137,9 +142,10 @@ def print_receipt():
     global receipt, total_receipt
     print("\n=====  Receipt  =====")
     for i in receipt:
-        print(f"{receipt.index(i) + 1}. {i}: £{MENU[i.lower()]["cost"]}")
+        price = MENU[i.lower()]["cost"] / 100
+        print(f"{receipt.index(i) + 1}. {i}: £{price}")
     print("---------------------")
-    print(f"Total: £{sum(total_receipt)}")
+    print(f"Total: £{sum(total_receipt) / 100}")
     print("=====================")
     print("\nEntering standby mode....")
     input("Press Enter to continue for next customer...")
@@ -174,6 +180,32 @@ def loading(x):
         sys.stdout.flush()
 
 
+def check_money(drink):
+    try:
+        one_pound = int(input("Please enter one pound coins: "))
+        fifty_pence = int(input("Please enter fifty pence coins: "))
+        twenty_pence = int(input("Please enter twenty pence coins: "))
+        ten_pence = int(input("Please enter ten pence coins: "))
+    except ValueError:
+        print("Invalid input. Please enter numeric values only.")
+        return False
+
+    total = (
+        (one_pound * 100) + (fifty_pence * 50) + (twenty_pence * 20) + (ten_pence * 10)
+    )
+    drink_price = MENU[drink]["cost"]
+    if total < drink_price:
+        print("Sorry, insufficient founds for you drink!❌")
+        return False
+    if total >= drink_price:
+        money["pounds"] += drink_price
+        refound = round(total - drink_price, 2) / 100
+        total_in_pounds = total / 100
+        print(f"Total inserted: £{total_in_pounds:.2f}")
+        print(f"Here's your change: £{refound:.2f}")
+        return True
+
+
 def start():
     starting_coffee_machine()
     is_on = True
@@ -183,6 +215,19 @@ def start():
         user_action = input(
             "Please select your coffee: (espresso / double / chocolate / latte / receipt or EXIT): "
         )
+        if user_action not in [
+            "espresso",
+            "double",
+            "chocolate",
+            "latte",
+            "receipt",
+            "exit",
+            "report",
+            "refill",
+            "cash",
+        ]:
+            print("Invalid option, please try again!")
+            continue
 
         match user_action:
             case "espresso":
