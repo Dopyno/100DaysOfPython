@@ -1,36 +1,19 @@
+from random import random
 from turtle import *
-import tkinter
 
 timmy = Turtle()
 jim = Turtle()
-jim.shape("turtle")
+my_screen = Screen()
 
 print(timmy)
 timmy.shape("turtle")
 timmy.color("red")
-timmy.pencolor("blue")
-move = 100
-for _ in range(5):
-    timmy.forward(move)
-    timmy.left(90)
-    timmy.forward(move)
-    timmy.left(90)
-    timmy.forward(move)
-    timmy.left(90)
-    timmy.forward(move)
-    jim.backward(move)
-    jim.right(90)
-    jim.backward(move)
-    jim.right(90)
-    jim.backward(move)
-    jim.right(90)  
-    jim.backward(move)
-    jim.right(90)
-    jim.backward(move)
-    jim.right(90)
-    move -= 10
+timmy.width(3)
 
-my_screen = Screen()
+for i in range(100):
+    steps = int(random() * 100)
+    angle = int(random() * 360)
+    timmy.right(angle)
+    timmy.fd(steps)
 print(my_screen.canvheight)
 my_screen.exitonclick()
-
