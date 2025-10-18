@@ -1,19 +1,24 @@
-from random import random
-from turtle import *
+# from turtle import *
+#
+# timmy = Turtle()
+# jim = Turtle()
+# my_screen = Screen()
+#
+# print(timmy)
+# timmy.shape("turtle")
+# timmy.color("blue")
+# timmy.width(3)
+#
+# timmy.forward(100)
+#
+# print(my_screen.canvheight)
+# my_screen.exitonclick()
 
-timmy = Turtle()
-jim = Turtle()
-my_screen = Screen()
+from prettytable import PrettyTable
 
-print(timmy)
-timmy.shape("turtle")
-timmy.color("red")
-timmy.width(3)
+table = PrettyTable()
 
-for i in range(100):
-    steps = int(random() * 100)
-    angle = int(random() * 360)
-    timmy.right(angle)
-    timmy.fd(steps)
-print(my_screen.canvheight)
-my_screen.exitonclick()
+table.add_column("Pokemon Name", ["Pikachu", "Squirtle", "Charmander"])
+table.add_column("Type", ["Electric", "Water", "Fire"])
+
+print(table)
