@@ -1,4 +1,5 @@
 from turtle import *
+import tkinter
 
 timmy = Turtle()
 jim = Turtle()
@@ -17,8 +18,19 @@ for _ in range(5):
     timmy.forward(move)
     timmy.left(90)
     timmy.forward(move)
+    jim.backward(move)
+    jim.right(90)
+    jim.backward(move)
+    jim.right(90)
+    jim.backward(move)
+    jim.right(90)  
+    jim.backward(move)
+    jim.right(90)
+    jim.backward(move)
+    jim.right(90)
     move -= 10
 
 my_screen = Screen()
 print(my_screen.canvheight)
 my_screen.exitonclick()
+
